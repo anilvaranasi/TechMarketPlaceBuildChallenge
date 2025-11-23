@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_module">
+    <sys_module action="INSERT_OR_UPDATE">
+        <content><![CDATA[import { gs, GlideDateTime, GlideRecord } from '@servicenow/glide'
+
+export function createOnboardingRecord(current, previous) {
+    // Only create onboarding record when a new tenant is created
+    if (current.isNewRecord()) {
+        var onboardingGr = new GlideRecord('x_146833_tenant_on_onboarding');
+        onboardingGr.initialize();
+        onboardingGr.setValue('tenant', current.getUniqueValue());
+        onboardingGr.setValue('onboarding_stage', 'registration');
+        onboardingGr.setValue('started_date', new GlideDateTime().getDisplayValue());
+        onboardingGr.setValue('progress_percentage', 10);
+        onboardingGr.setValue('current_task', 'Review tenant registration and validate information');
+        onboardingGr.setValue('priority', 'medium');
+        
+        // Set target completion date to 14 days from now
+        var targetDate = new GlideDateTime();
+        targetDate.addDaysUTC(14);
+        onboardingGr.setValue('target_completion_date', targetDate.getDisplayValue());
+        
+        onboardingGr.insert();
+        
+        gs.addInfoMessage('Onboarding process initiated for tenant: ' + current.getDisplayValue());
+    }
+}
+
+export function updateTenantStatus(current, previous) {
+    // Update tenant status when onboarding stage changes
+    var tenantGr = new GlideRecord('x_146833_tenant_on_tenant');
+    if (tenantGr.get(current.getValue('tenant'))) {
+        var stage = current.getValue('onboarding_stage');
+        
+        switch (stage) {
+            case 'complete':
+                tenantGr.setValue('tenant_status', 'active');
+                tenantGr.setValue('is_active', true);
+                tenantGr.setValue('approved_date', new GlideDateTime().getDisplayValue());
+                current.setValue('actual_completion_date', new GlideDateTime().getDisplayValue());
+                current.setValue('progress_percentage', 100);
+                break;
+            case 'failed':
+                tenantGr.setValue('tenant_status', 'rejected');
+                tenantGr.setValue('is_active', false);
+                break;
+            case 'approval':
+                current.setValue('progress_percentage', 90);
+                break;
+            case 'testing':
+                current.setValue('progress_percentage', 75);
+                break;
+            case 'technical_setup':
+                current.setValue('progress_percentage', 50);
+                break;
+            case 'documentation':
+                current.setValue('progress_percentage', 30);
+                break;
+            case 'review':
+                current.setValue('progress_percentage', 20);
+                break;
+        }
+        
+        tenantGr.update();
+    }
+}
+
+export function setRegistrationDate(current, previous) {
+    // Set registration date when tenant is first created
+    if (current.isNewRecord()) {
+        current.setValue('registration_date', new GlideDateTime().getDisplayValue());
+    }
+}]]></content>
+        <external_source>false</external_source>
+        <path>x_146833_tenant_on/x-146833-tenant-onboa/1.0.0/src/server/tenant-automation.js</path>
+        <sys_class_name>sys_module</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-23 06:14:14</sys_created_on>
+        <sys_id>c9c603c76b7c49d3bd6b4b7318bc1e83</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_146833_tenant_on/x-146833-tenant-onboa/1.0.0/src/server/tenant-automation.js</sys_name>
+        <sys_package display_value="Tenant Onboa" source="x_146833_tenant_on">d46bdccfc351b210f6ebf8ddd401316c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Tenant Onboa">d46bdccfc351b210f6ebf8ddd401316c</sys_scope>
+        <sys_update_name>sys_module_c9c603c76b7c49d3bd6b4b7318bc1e83</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-23 06:14:14</sys_updated_on>
+    </sys_module>
+</record_update>

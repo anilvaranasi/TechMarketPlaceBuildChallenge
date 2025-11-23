@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element audit="true" db_object_id="31222483c3d1b210f6ebf8ddd4013147" label="Tenant Project" max_length="40" name="x_146833_tenant_on_project" type="collection">
+        <element attributes="encode_utf8=false" label="Project Manager" mandatory="true" max_length="32" name="project_manager" reference="sys_user" type="reference"/>
+        <element choice="1" label="Project Type" max_length="40" name="project_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Migration" sequence="2" value="migration"/>
+                <element inactive_on_update="false" label="Infrastructure" sequence="3" value="infrastructure"/>
+                <element inactive_on_update="false" label="Development" sequence="0" value="development"/>
+                <element inactive_on_update="false" label="Security" sequence="4" value="security"/>
+                <element inactive_on_update="false" label="Integration" sequence="1" value="integration"/>
+                <element inactive_on_update="false" label="Compliance" sequence="5" value="compliance"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Actual End Date" max_length="40" name="actual_end_date" read_only="true" type="glide_date"/>
+        <element attributes="encode_utf8=false" label="Business Owner" max_length="32" name="business_owner" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Project Description" max_length="2000" name="description" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Budget" max_length="100" name="budget" type="string"/>
+        <element choice="1" default="medium" label="Priority" max_length="40" name="priority" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="High" sequence="2" value="high"/>
+                <element inactive_on_update="false" label="Critical" sequence="3" value="critical"/>
+                <element inactive_on_update="false" label="Low" sequence="0" value="low"/>
+                <element inactive_on_update="false" label="Medium" sequence="1" value="medium"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Project Code" mandatory="true" max_length="20" name="project_code" type="string"/>
+        <element attributes="encode_utf8=false" label="Technical Lead" max_length="32" name="technical_lead" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Start Date" max_length="40" name="start_date" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" label="Target End Date" max_length="40" name="target_end_date" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" label="Environment Requirements" max_length="1000" name="environment_requirements" type="string"/>
+        <element attributes="edge_encryption_enabled=true" display="true" label="Project Name" mandatory="true" max_length="200" name="project_name" type="string"/>
+        <element attributes="encode_utf8=false" label="Tenant" mandatory="true" max_length="32" name="tenant" reference="x_146833_tenant_on_tenant" type="reference"/>
+        <element choice="1" default="planning" label="Project Status" max_length="40" name="project_status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Planning" sequence="0" value="planning"/>
+                <element inactive_on_update="false" label="Cancelled" sequence="4" value="cancelled"/>
+                <element inactive_on_update="false" label="Active" sequence="1" value="active"/>
+                <element inactive_on_update="false" label="On Hold" sequence="2" value="on_hold"/>
+                <element inactive_on_update="false" label="Completed" sequence="3" value="completed"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="business_owner"/>
+        </index>
+        <index name="index2">
+            <element name="project_manager"/>
+        </index>
+        <index name="index3">
+            <element name="technical_lead"/>
+        </index>
+        <index name="index4">
+            <element name="tenant"/>
+        </index>
+    </element>
+</database>

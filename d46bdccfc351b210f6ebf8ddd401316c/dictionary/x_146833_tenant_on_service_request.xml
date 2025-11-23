@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element audit="true" db_object_id="79222483c3d1b210f6ebf8ddd401310e" extends="sc_req_item" label="Service Onboarding Request" max_length="40" name="x_146833_tenant_on_service_request" type="collection">
+        <element choice="1" default="contributor" label="Requested Access Level" max_length="40" name="access_level" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Owner" sequence="3" value="owner"/>
+                <element inactive_on_update="false" label="Viewer" sequence="0" value="viewer"/>
+                <element inactive_on_update="false" label="Contributor" sequence="1" value="contributor"/>
+                <element inactive_on_update="false" label="Administrator" sequence="2" value="administrator"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="API Credentials Reference" max_length="500" name="api_credentials" type="string"/>
+        <element choice="1" default="not_started" label="Automation Status" max_length="40" name="automation_status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Failed" sequence="4" value="failed"/>
+                <element inactive_on_update="false" label="Not Started" sequence="0" value="not_started"/>
+                <element inactive_on_update="false" label="Retrying" sequence="5" value="retrying"/>
+                <element inactive_on_update="false" label="Triggered" sequence="1" value="triggered"/>
+                <element inactive_on_update="false" label="Running" sequence="2" value="running"/>
+                <element inactive_on_update="false" label="Completed" sequence="3" value="completed"/>
+            </choice>
+        </element>
+        <element label="Production Environment" max_length="40" name="is_production" type="boolean"/>
+        <element attributes="encode_utf8=false" label="Requested By" mandatory="true" max_length="32" name="requested_by" reference="sys_user" type="reference"/>
+        <element choice="1" default="pending" label="Approval Status" max_length="40" name="approval_status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Cancelled" sequence="3" value="cancelled"/>
+                <element inactive_on_update="false" label="Pending Approval" sequence="0" value="pending"/>
+                <element inactive_on_update="false" label="Approved" sequence="1" value="approved"/>
+                <element inactive_on_update="false" label="Rejected" sequence="2" value="rejected"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Business Justification" mandatory="true" max_length="2000" name="business_justification" type="string"/>
+        <element choice="1" default="requested" label="Onboarding Status" max_length="40" name="onboarding_status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Provisioning" sequence="3" value="provisioning"/>
+                <element inactive_on_update="false" label="Testing" sequence="4" value="testing"/>
+                <element inactive_on_update="false" label="Requested" sequence="0" value="requested"/>
+                <element inactive_on_update="false" label="Completed" sequence="5" value="completed"/>
+                <element inactive_on_update="false" label="Approved" sequence="1" value="approved"/>
+                <element inactive_on_update="false" label="Failed" sequence="6" value="failed"/>
+                <element inactive_on_update="false" label="In Progress" sequence="2" value="in_progress"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Completion Date" max_length="40" name="completion_date" read_only="true" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" label="Error Message" max_length="1000" name="error_message" read_only="true" type="string"/>
+        <element default="0" label="Retry Count" max_length="40" name="retry_count" read_only="true" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="Technical Requirements" max_length="2000" name="technical_requirements" type="string"/>
+        <element attributes="encode_utf8=false" label="Tenant" mandatory="true" max_length="32" name="tenant" reference="x_146833_tenant_on_tenant" type="reference"/>
+        <element attributes="encode_utf8=false" label="Approved By" max_length="32" name="approved_by" read_only="true" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Configuration Data" max_length="4000" name="configuration_data" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="External System Reference" max_length="200" name="external_reference" type="string"/>
+        <element attributes="encode_utf8=false" label="Project" mandatory="true" max_length="32" name="project" reference="x_146833_tenant_on_project" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Service Account Details" max_length="2000" name="service_account_details" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Approved Date" max_length="40" name="approved_date" read_only="true" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" label="Flow Execution ID" max_length="100" name="flow_execution_id" read_only="true" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Rejection Reason" max_length="500" name="rejection_reason" type="string"/>
+        <element attributes="encode_utf8=false" label="Service Provider" mandatory="true" max_length="32" name="service_provider" reference="x_146833_tenant_on_service_provider" type="reference"/>
+    </element>
+</database>

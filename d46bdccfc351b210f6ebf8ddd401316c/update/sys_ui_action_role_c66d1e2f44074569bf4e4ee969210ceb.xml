@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_action_role">
+    <sys_ui_action_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_ui_action_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-23 06:14:14</sys_created_on>
+        <sys_id>c66d1e2f44074569bf4e4ee969210ceb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Reject Tenant.</sys_name>
+        <sys_package display_value="Tenant Onboa" source="x_146833_tenant_on">d46bdccfc351b210f6ebf8ddd401316c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Tenant Onboa">d46bdccfc351b210f6ebf8ddd401316c</sys_scope>
+        <sys_ui_action display_value="Reject Tenant">2fcf2b3248f94824b85f8be37fc12d10</sys_ui_action>
+        <sys_update_name>sys_ui_action_role_c66d1e2f44074569bf4e4ee969210ceb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-23 06:14:14</sys_updated_on>
+        <sys_user_role display_value="x_146833_tenant_on.marketplace_admin" name="x_146833_tenant_on.marketplace_admin">a0aa2a10b50f4ef89f08bbb56d1fffff</sys_user_role>
+    </sys_ui_action_role>
+</record_update>

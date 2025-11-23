@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_module">
+    <sys_module action="INSERT_OR_UPDATE">
+        <content><![CDATA[import { gs, GlideDateTime, GlideRecord } from '@servicenow/glide'
+
+export function handleServiceRequestApproval(current, previous) {
+    // When a service request is approved, trigger automation if available
+    if (current.getValue('approval_status') === 'approved' && previous.getValue('approval_status') !== 'approved') {
+        
+        // Update approval details
+        current.setValue('approved_by', gs.getUserID());
+        current.setValue('approved_date', new GlideDateTime().getDisplayValue());
+        current.setValue('onboarding_status', 'approved');
+        
+        // Check if service provider supports automation
+        var serviceProviderGr = new GlideRecord('x_146833_tenant_on_service_provider');
+        if (serviceProviderGr.get(current.getValue('service_provider'))) {
+            if (serviceProviderGr.getValue('is_automated') === 'true') {
+                // Trigger automated onboarding flow
+                triggerOnboardingFlow(current, serviceProviderGr);
+            } else {
+                // Manual process - assign to operations manager
+                current.setValue('assigned_to', serviceProviderGr.getValue('operations_manager'));
+                current.setValue('onboarding_status', 'in_progress');
+            }
+        }
+        
+        gs.addInfoMessage('Service onboarding request approved and processing initiated');
+    }
+}
+
+export function triggerOnboardingFlow(serviceRequest, serviceProvider) {
+    try {
+        var flowId = serviceProvider.getValue('onboarding_flow_id');
+        if (flowId) {
+            // Set automation status
+            serviceRequest.setValue('automation_status', 'triggered');
+            serviceRequest.setValue('onboarding_status', 'provisioning');
+            
+            // In a real implementation, this would trigger a Flow Designer flow
+            // For now, we'll simulate the API call preparation
+            var configData = prepareConfigurationData(serviceRequest, serviceProvider);
+            serviceRequest.setValue('configuration_data', JSON.stringify(configData));
+            
+            gs.info('Onboarding flow triggered for request: ' + serviceRequest.getDisplayValue());
+        }
+    } catch (error) {
+        serviceRequest.setValue('automation_status', 'failed');
+        serviceRequest.setValue('error_message', error.message);
+        gs.error('Failed to trigger onboarding flow: ' + error.message);
+    }
+}
+
+export function prepareConfigurationData(serviceRequest, serviceProvider) {
+    // Get tenant and project information
+    var tenantGr = new GlideRecord('x_146833_tenant_on_tenant');
+    var projectGr = new GlideRecord('x_146833_tenant_on_project');
+    var userGr = new GlideRecord('sys_user');
+    
+    var config = {
+        tenant: {},
+        project: {},
+        service: {},
+        requestor: {}
+    };
+    
+    // Get tenant info
+    if (tenantGr.get(serviceRequest.getValue('tenant'))) {
+        config.tenant = {
+            name: tenantGr.getValue('company_name'),
+            email: tenantGr.getValue('contact_email'),
+            type: tenantGr.getValue('business_type')
+        };
+    }
+    
+    // Get project info
+    if (projectGr.get(serviceRequest.getValue('project'))) {
+        config.project = {
+            name: projectGr.getValue('project_name'),
+            code: projectGr.getValue('project_code'),
+            type: projectGr.getValue('project_type')
+        };
+    }
+    
+    // Get service info
+    config.service = {
+        type: serviceProvider.getValue('service_type'),
+        endpoint: serviceProvider.getValue('api_endpoint'),
+        auth_method: serviceProvider.getValue('authentication_method')
+    };
+    
+    // Get requestor info
+    if (userGr.get(serviceRequest.getValue('requested_by'))) {
+        config.requestor = {
+            name: userGr.getValue('name'),
+            email: userGr.getValue('email'),
+            user_id: userGr.getValue('user_name')
+        };
+    }
+    
+    return config;
+}
+
+export function createProjectTeams(current, previous) {
+    // When a new project is created, create default teams
+    if (current.isNewRecord()) {
+        createTeamForProject(current, 'fulfillment');
+        createTeamForProject(current, 'technical_approval');
+        createTeamForProject(current, 'business_approval');
+        createTeamForProject(current, 'project_management');
+        
+        gs.addInfoMessage('Default teams created for project: ' + current.getDisplayValue());
+    }
+}
+
+export function createTeamForProject(project, teamType) {
+    var teamGr = new GlideRecord('sys_user_group');
+    teamGr.initialize();
+    
+    var projectName = project.getValue('project_name');
+    var projectCode = project.getValue('project_code');
+    
+    teamGr.setValue('name', projectCode + ' - ' + getTeamDisplayName(teamType));
+    teamGr.setValue('description', getTeamDisplayName(teamType) + ' for project: ' + projectName);
+    teamGr.setValue('type', 'itil');
+    teamGr.setValue('active', 'true');
+    
+    // Add project manager to all teams initially
+    if (project.getValue('project_manager')) {
+        teamGr.setValue('manager', project.getValue('project_manager'));
+    }
+    
+    var teamSysId = teamGr.insert();
+    
+    // Add project manager as team member
+    if (teamSysId && project.getValue('project_manager')) {
+        addUserToGroup(teamSysId, project.getValue('project_manager'));
+    }
+    
+    return teamSysId;
+}
+
+export function addUserToGroup(groupSysId, userSysId) {
+    var memberGr = new GlideRecord('sys_user_grmember');
+    memberGr.initialize();
+    memberGr.setValue('group', groupSysId);
+    memberGr.setValue('user', userSysId);
+    memberGr.insert();
+}
+
+export function getTeamDisplayName(teamType) {
+    var displayNames = {
+        'fulfillment': 'Fulfillment Team',
+        'technical_approval': 'Technical Approval Team',
+        'business_approval': 'Business Approval Team',
+        'project_management': 'Project Management Team'
+    };
+    return displayNames[teamType] || teamType;
+}]]></content>
+        <external_source>false</external_source>
+        <path>x_146833_tenant_on/x-146833-tenant-onboa/1.0.0/src/server/service-automation.js</path>
+        <sys_class_name>sys_module</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-23 06:30:56</sys_created_on>
+        <sys_id>40a66b70991443daacc9085ccbafe6da</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_146833_tenant_on/x-146833-tenant-onboa/1.0.0/src/server/service-automation.js</sys_name>
+        <sys_package display_value="Tenant Onboa" source="x_146833_tenant_on">d46bdccfc351b210f6ebf8ddd401316c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Tenant Onboa">d46bdccfc351b210f6ebf8ddd401316c</sys_scope>
+        <sys_update_name>sys_module_40a66b70991443daacc9085ccbafe6da</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-23 06:30:56</sys_updated_on>
+    </sys_module>
+</record_update>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role_contains">
+    <sys_user_role_contains action="INSERT_OR_UPDATE">
+        <contains display_value="x_146833_tenant_on.tenant_user" name="x_146833_tenant_on.tenant_user">7474947c3dd54af9a93bf0d06b57c6de</contains>
+        <role display_value="x_146833_tenant_on.onboarding_specialist" name="x_146833_tenant_on.onboarding_specialist">07386f486c7e49cd8a08c6ae7ad489a5</role>
+        <sys_class_name>sys_user_role_contains</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-23 06:14:15</sys_created_on>
+        <sys_id>d0d40143b5664e1ebf2e04cb9367dd10</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_146833_tenant_on.tenant_user.x_146833_tenant_on.onboarding_specialist</sys_name>
+        <sys_package display_value="Tenant Onboa" source="x_146833_tenant_on">d46bdccfc351b210f6ebf8ddd401316c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Tenant Onboa">d46bdccfc351b210f6ebf8ddd401316c</sys_scope>
+        <sys_update_name>sys_user_role_contains_d0d40143b5664e1ebf2e04cb9367dd10</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-23 06:14:15</sys_updated_on>
+    </sys_user_role_contains>
+</record_update>

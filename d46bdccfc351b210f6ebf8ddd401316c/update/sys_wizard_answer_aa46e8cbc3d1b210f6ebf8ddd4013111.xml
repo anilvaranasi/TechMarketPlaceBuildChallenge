@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_wizard_answer">
+    <sys_wizard_answer action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <answer>IT System</answer>
+        <button_label/>
+        <dependent_value/>
+        <element/>
+        <name>IT System</name>
+        <next_question/>
+        <order>100</order>
+        <payload_name/>
+        <question display_value="Base Configuration Item" name="Base Configuration Item">40bca9f6f17322108bb2efdbde054cd9</question>
+        <roles/>
+        <script/>
+        <sys_class_name>sys_wizard_answer</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-23 06:48:41</sys_created_on>
+        <sys_id>aa46e8cbc3d1b210f6ebf8ddd4013111</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>IT System</sys_name>
+        <sys_package display_value="Tenant Onboa" source="x_146833_tenant_on">d46bdccfc351b210f6ebf8ddd401316c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Tenant Onboa">d46bdccfc351b210f6ebf8ddd401316c</sys_scope>
+        <sys_update_name>sys_wizard_answer_aa46e8cbc3d1b210f6ebf8ddd4013111</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-23 06:48:41</sys_updated_on>
+        <table/>
+        <target_url>x_146833_tenant_on_it_system.do</target_url>
+        <type>1</type>
+    </sys_wizard_answer>
+</record_update>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element audit="true" db_object_id="ae46e8cbc3d1b210f6ebf8ddd401310f" extends="cmdb_ci_service" label="IT System" max_length="40" name="x_146833_tenant_on_it_system" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Maintenance Window" max_length="200" name="maintenance_window" type="string"/>
+        <element attributes="encode_utf8=false" label="System Owner" max_length="32" name="system_owner" reference="sys_user" type="reference"/>
+        <element attributes="encode_utf8=false" label="Business Application" mandatory="true" max_length="32" name="business_application" reference="cmdb_ci_business_app" type="reference"/>
+        <element choice="1" label="System Type" max_length="40" name="system_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Monitoring" sequence="5" value="monitoring"/>
+                <element inactive_on_update="false" label="Database" sequence="1" value="database"/>
+                <element inactive_on_update="false" label="Integration" sequence="6" value="integration"/>
+                <element inactive_on_update="false" label="Middleware" sequence="2" value="middleware"/>
+                <element inactive_on_update="false" label="Infrastructure" sequence="3" value="infrastructure"/>
+                <element inactive_on_update="false" label="Application" sequence="0" value="application"/>
+                <element inactive_on_update="false" label="Security" sequence="4" value="security"/>
+            </choice>
+        </element>
+        <element default="true" label="Backup Required" max_length="40" name="backup_required" type="boolean"/>
+        <element default="true" label="Monitoring Required" max_length="40" name="monitoring_required" type="boolean"/>
+        <element attributes="encode_utf8=false" label="Project" max_length="32" name="project" reference="x_146833_tenant_on_project" type="reference"/>
+        <element attributes="encode_utf8=false" label="Technical Contact" max_length="32" name="technical_contact" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Technology Stack" max_length="1000" name="technology_stack" type="string"/>
+        <element attributes="encode_utf8=false" label="Tenant" max_length="32" name="tenant" reference="x_146833_tenant_on_tenant" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Go-Live Date" max_length="40" name="go_live_date" type="glide_date_time"/>
+        <element choice="1" label="License Type" max_length="40" name="license_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Subscription" sequence="3" value="subscription"/>
+                <element inactive_on_update="false" label="Commercial" sequence="0" value="commercial"/>
+                <element inactive_on_update="false" label="Freemium" sequence="4" value="freemium"/>
+                <element inactive_on_update="false" label="Open Source" sequence="1" value="open_source"/>
+                <element inactive_on_update="false" label="Proprietary" sequence="2" value="proprietary"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Compliance Requirements" max_length="1000" name="compliance_requirements" type="string"/>
+        <element choice="1" default="medium" label="Business Criticality" max_length="40" name="criticality" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Business Important" sequence="2" value="medium"/>
+                <element inactive_on_update="false" label="Business Operational" sequence="3" value="low"/>
+                <element inactive_on_update="false" label="Mission Critical" sequence="0" value="critical"/>
+                <element inactive_on_update="false" label="Business Critical" sequence="1" value="high"/>
+            </choice>
+        </element>
+        <element choice="1" label="Data Classification" max_length="40" name="data_classification" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Internal" sequence="1" value="internal"/>
+                <element inactive_on_update="false" label="Confidential" sequence="2" value="confidential"/>
+                <element inactive_on_update="false" label="Restricted" sequence="3" value="restricted"/>
+                <element inactive_on_update="false" label="Public" sequence="0" value="public"/>
+            </choice>
+        </element>
+        <element choice="1" label="Disaster Recovery Tier" max_length="40" name="disaster_recovery_tier" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Tier 1 (1-4 hours)" sequence="1" value="tier_1"/>
+                <element inactive_on_update="false" label="Tier 2 (4-12 hours)" sequence="2" value="tier_2"/>
+                <element inactive_on_update="false" label="Tier 3 (12-24 hours)" sequence="3" value="tier_3"/>
+                <element inactive_on_update="false" label="Tier 0 (0-1 hours)" sequence="0" value="tier_0"/>
+                <element inactive_on_update="false" label="Tier 4 (24+ hours)" sequence="4" value="tier_4"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="End of Life Date" max_length="40" name="end_of_life_date" type="glide_date_time"/>
+    </element>
+</database>

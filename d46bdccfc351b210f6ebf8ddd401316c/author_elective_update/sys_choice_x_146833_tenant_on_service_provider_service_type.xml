@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="service_type" table="x_146833_tenant_on_service_provider" version="3">
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>service_type</element>
+            <name>x_146833_tenant_on_service_provider</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-11-23 06:30:53</sys_created_on>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>service_type</sys_name>
+            <sys_package display_value="Tenant Onboa" source="x_146833_tenant_on">d46bdccfc351b210f6ebf8ddd401316c</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Tenant Onboa">d46bdccfc351b210f6ebf8ddd401316c</sys_scope>
+            <sys_update_name>sys_choice_x_146833_tenant_on_service_provider_service_type</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-11-23 06:30:53</sys_updated_on>
+        </sys_choice_set>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>service_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Single Sign-On</label>
+            <language>en</language>
+            <name>x_146833_tenant_on_service_provider</name>
+            <sequence>0</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-11-23 06:30:53</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-11-23 06:30:53</sys_updated_on>
+            <value>sso</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>service_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>GitLab</label>
+            <language>en</language>
+            <name>x_146833_tenant_on_service_provider</name>
+            <sequence>1</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-11-23 06:30:53</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-11-23 06:30:53</sys_updated_on>
+            <value>gitlab</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>service_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>AWS Cloud Services</label>
+            <language>en</language>
+            <name>x_146833_tenant_on_service_provider</name>
+            <sequence>2</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-11-23 06:30:53</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-11-23 06:30:53</sys_updated_on>
+            <value>cloud_aws</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>service_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Azure Cloud Services</label>
+            <language>en</language>
+            <name>x_146833_tenant_on_service_provider</name>
+            <sequence>3</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-11-23 06:30:53</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-11-23 06:30:53</sys_updated_on>
+            <value>cloud_azure</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>service_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Google Cloud Platform</label>
+            <language>en</language>
+            <name>x_146833_tenant_on_service_provider</name>
+            <sequence>4</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-11-23 06:30:53</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-11-23 06:30:53</sys_updated_on>
+            <value>cloud_gcp</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>service_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Atlassian Jira</label>
+            <language>en</language>
+            <name>x_146833_tenant_on_service_provider</name>
+            <sequence>5</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-11-23 06:30:53</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-11-23 06:30:53</sys_updated_on>
+            <value>jira</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>service_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Atlassian Confluence</label>
+            <language>en</language>
+            <name>x_146833_tenant_on_service_provider</name>
+            <sequence>6</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-11-23 06:30:53</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-11-23 06:30:53</sys_updated_on>
+            <value>confluence</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>service_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Monitoring &amp; Alerting</label>
+            <language>en</language>
+            <name>x_146833_tenant_on_service_provider</name>
+            <sequence>7</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-11-23 06:30:53</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-11-23 06:30:53</sys_updated_on>
+            <value>monitoring</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>service_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Security Services</label>
+            <language>en</language>
+            <name>x_146833_tenant_on_service_provider</name>
+            <sequence>8</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-11-23 06:30:53</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-11-23 06:30:53</sys_updated_on>
+            <value>security</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>service_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Custom Service</label>
+            <language>en</language>
+            <name>x_146833_tenant_on_service_provider</name>
+            <sequence>9</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-11-23 06:30:53</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-11-23 06:30:53</sys_updated_on>
+            <value>custom</value>
+        </sys_choice>
+    </sys_choice>
+</record_update>

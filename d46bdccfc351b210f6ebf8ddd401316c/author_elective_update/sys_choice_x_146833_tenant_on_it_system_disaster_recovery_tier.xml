@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="disaster_recovery_tier" table="x_146833_tenant_on_it_system" version="3">
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>disaster_recovery_tier</element>
+            <name>x_146833_tenant_on_it_system</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-11-23 06:49:18</sys_created_on>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>disaster_recovery_tier</sys_name>
+            <sys_package display_value="Tenant Onboa" source="x_146833_tenant_on">d46bdccfc351b210f6ebf8ddd401316c</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Tenant Onboa">d46bdccfc351b210f6ebf8ddd401316c</sys_scope>
+            <sys_update_name>sys_choice_x_146833_tenant_on_it_system_disaster_recovery_tier</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-11-23 06:49:18</sys_updated_on>
+        </sys_choice_set>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>disaster_recovery_tier</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Tier 0 (0-1 hours)</label>
+            <language>en</language>
+            <name>x_146833_tenant_on_it_system</name>
+            <sequence>0</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-11-23 06:49:18</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-11-23 06:49:18</sys_updated_on>
+            <value>tier_0</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>disaster_recovery_tier</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Tier 1 (1-4 hours)</label>
+            <language>en</language>
+            <name>x_146833_tenant_on_it_system</name>
+            <sequence>1</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-11-23 06:49:18</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-11-23 06:49:18</sys_updated_on>
+            <value>tier_1</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>disaster_recovery_tier</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Tier 2 (4-12 hours)</label>
+            <language>en</language>
+            <name>x_146833_tenant_on_it_system</name>
+            <sequence>2</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-11-23 06:49:18</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-11-23 06:49:18</sys_updated_on>
+            <value>tier_2</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>disaster_recovery_tier</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Tier 3 (12-24 hours)</label>
+            <language>en</language>
+            <name>x_146833_tenant_on_it_system</name>
+            <sequence>3</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-11-23 06:49:18</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-11-23 06:49:18</sys_updated_on>
+            <value>tier_3</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>disaster_recovery_tier</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Tier 4 (24+ hours)</label>
+            <language>en</language>
+            <name>x_146833_tenant_on_it_system</name>
+            <sequence>4</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-11-23 06:49:18</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-11-23 06:49:18</sys_updated_on>
+            <value>tier_4</value>
+        </sys_choice>
+    </sys_choice>
+</record_update>

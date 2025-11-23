@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element audit="true" db_object_id="2c122403c3d1b210f6ebf8ddd40131c5" extends="cmdb_ci_service" label="Service Provider" max_length="40" name="x_146833_tenant_on_service_provider" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Configuration Template" max_length="4000" name="configuration_template" type="string"/>
+        <element attributes="encode_utf8=false" label="Operations Manager" mandatory="true" max_length="32" name="operations_manager" reference="sys_user" type="reference"/>
+        <element default="true" label="Requires Manager Approval" max_length="40" name="requires_approval" type="boolean"/>
+        <element choice="1" label="Service Type" mandatory="true" max_length="40" name="service_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="AWS Cloud Services" sequence="2" value="cloud_aws"/>
+                <element inactive_on_update="false" label="Atlassian Confluence" sequence="6" value="confluence"/>
+                <element inactive_on_update="false" label="Azure Cloud Services" sequence="3" value="cloud_azure"/>
+                <element inactive_on_update="false" label="Monitoring &amp; Alerting" sequence="7" value="monitoring"/>
+                <element inactive_on_update="false" label="Single Sign-On" sequence="0" value="sso"/>
+                <element inactive_on_update="false" label="Google Cloud Platform" sequence="4" value="cloud_gcp"/>
+                <element inactive_on_update="false" label="Security Services" sequence="8" value="security"/>
+                <element inactive_on_update="false" label="GitLab" sequence="1" value="gitlab"/>
+                <element inactive_on_update="false" label="Atlassian Jira" sequence="5" value="jira"/>
+                <element inactive_on_update="false" label="Custom Service" sequence="9" value="custom"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Onboarding Flow ID" max_length="100" name="onboarding_flow_id" type="string"/>
+        <element choice="1" label="Authentication Method" max_length="40" name="authentication_method" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Custom" sequence="5" value="custom"/>
+                <element inactive_on_update="false" label="API Key" sequence="1" value="api_key"/>
+                <element inactive_on_update="false" label="Basic Authentication" sequence="2" value="basic_auth"/>
+                <element inactive_on_update="false" label="Bearer Token" sequence="3" value="token"/>
+                <element inactive_on_update="false" label="OAuth 2.0" sequence="0" value="oauth2"/>
+                <element inactive_on_update="false" label="SAML" sequence="4" value="saml"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="API Endpoint" max_length="500" name="api_endpoint" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Documentation URL" max_length="500" name="documentation_url" type="string"/>
+        <element label="Automated Onboarding" max_length="40" name="is_automated" type="boolean"/>
+        <element label="SLA Hours for Onboarding" max_length="20" name="sla_hours" type="decimal"/>
+        <element attributes="encode_utf8=false" label="Support Contact" max_length="32" name="support_contact" reference="sys_user" type="reference"/>
+    </element>
+</database>

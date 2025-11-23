@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element audit="true" db_object_id="6c6e900bc391b210f6ebf8ddd401318e" extends="task" label="Tenant Onboarding" max_length="40" name="x_146833_tenant_on_onboarding" type="collection">
+        <element default="0" label="Progress %" max_length="40" name="progress_percentage" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="Notes" max_length="4000" name="notes" type="string"/>
+        <element label="Documentation Complete" max_length="40" name="documentation_complete" type="boolean"/>
+        <element attributes="encode_utf8=false" display="true" label="Tenant" mandatory="true" max_length="32" name="tenant" reference="x_146833_tenant_on_tenant" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Target Completion Date" max_length="40" name="target_completion_date" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" label="Blockers/Issues" max_length="2000" name="blockers" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Actual Completion Date" max_length="40" name="actual_completion_date" read_only="true" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" label="Current Task" max_length="300" name="current_task" type="string"/>
+        <element default="0" label="Escalation Count" max_length="40" name="escalation_count" read_only="true" type="integer"/>
+        <element choice="1" default="registration" label="Onboarding Stage" max_length="40" name="onboarding_stage" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Registration Submitted" sequence="0" value="registration"/>
+                <element inactive_on_update="false" label="Testing Phase" sequence="4" value="testing"/>
+                <element inactive_on_update="false" label="Under Review" sequence="1" value="review"/>
+                <element inactive_on_update="false" label="Final Approval" sequence="5" value="approval"/>
+                <element inactive_on_update="false" label="Documentation Required" sequence="2" value="documentation"/>
+                <element inactive_on_update="false" label="Onboarding Complete" sequence="6" value="complete"/>
+                <element inactive_on_update="false" label="Technical Setup" sequence="3" value="technical_setup"/>
+                <element inactive_on_update="false" label="Onboarding Failed" sequence="7" value="failed"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Started Date" max_length="40" name="started_date" read_only="true" type="glide_date_time"/>
+        <element label="Technical Setup Complete" max_length="40" name="technical_setup_complete" type="boolean"/>
+        <element label="Testing Complete" max_length="40" name="testing_complete" type="boolean"/>
+    </element>
+</database>
